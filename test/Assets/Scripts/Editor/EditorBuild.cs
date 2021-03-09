@@ -28,5 +28,5 @@ class EditorBuild
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
 
         BuildPipeline.BuildPlayer(buildPlayerOptions);
-    }
+    }//
 }
