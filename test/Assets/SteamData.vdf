@@ -1,0 +1,21 @@
+"AppBuild"
+{
+	"AppID" "1110310"
+	"Desc" "@@@@"
+
+	"ContentRoot" "..\content\"
+	"BuildOutput" "..\output\"
+
+	"Depots"
+	{
+		"1110311"
+		{
+			"FileMapping"
+			{
+				"LocalPath" "windows_content\*"
+				"DepotPath" "."
+				"recursive" "1"
+			}
+		}
+	}
+}
