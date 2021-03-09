@@ -4,17 +4,18 @@ using UnityEngine;
 
 class EditorBuild
 {
+    static string contentBuilderPath = "C:/Users/AtomicWolf/Documents/steamworks_sdk_151/tools/ContentBuilder/";
+
     [MenuItem("Build/Windows Build")]
     public static void WindowsBuild()
     {
         string path = "Assets/SteamData.vdf";
 
         StreamReader reader = new StreamReader(path);
-        File.WriteAllLines("C:/Users/AtomicWolf/Documents/steamworks_sdk_151/tools/ContentBuilder/scripts/SteamData.vdf", new[] { reader.ReadToEnd().Replace("@@@@", "Version " + Application.version + " Date " + System.DateTime.Now.ToString("yyyy/MM/dd")) });
+        File.WriteAllLines(contentBuilderPath + "scripts/SteamData.vdf", new[] { reader.ReadToEnd().Replace("@@@@", "Version " + Application.version + " Date " + System.DateTime.Now.ToString("yyyy/MM/dd")) });
         reader.Close();
 
-        /*
-        string locationPathName = "C:/Users/AtomicWolf/Documents/steamworks_sdk_151/tools/ContentBuilder/content/windows_content/";
+        string locationPathName = contentBuilderPath + "content/windows_content/";
         if (Directory.Exists(locationPathName))
         {
             Directory.Delete(locationPathName, true);
@@ -27,6 +28,5 @@ class EditorBuild
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
 
         BuildPipeline.BuildPlayer(buildPlayerOptions);
-        */
     }
 }
