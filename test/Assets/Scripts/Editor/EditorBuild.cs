@@ -12,7 +12,7 @@ class EditorBuild
         string path = "Assets/SteamData.vdf";
 
         StreamReader reader = new StreamReader(path);
-        File.WriteAllLines(contentBuilderPath + "scripts/SteamData.vdf", new[] { reader.ReadToEnd().Replace("@@@@", "Version " + Application.version + " Date " + System.DateTime.Now.ToString("yyyy/MM/dd")) });
+        File.WriteAllLines(contentBuilderPath + "scripts/SteamData.vdf", new[] { reader.ReadToEnd().Replace("@@@@", "Version " + Application.version + " Date " + System.DateTime.Now.ToString("yyyy/MM/dd hh:mm")) });
         reader.Close();
 
         string locationPathName = contentBuilderPath + "content/windows_content/";
@@ -28,5 +28,5 @@ class EditorBuild
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
 
         BuildPipeline.BuildPlayer(buildPlayerOptions);
-    }//
+    }
 }
